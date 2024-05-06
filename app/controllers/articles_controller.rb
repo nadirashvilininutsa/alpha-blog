@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     def show
-        @article = Article.find(params[:id]) # @ converts regular variable into instance variable
+        @article = Article.find(params[:id])
     end
 
     def index
@@ -13,11 +13,12 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(params.require(:article).permit(:title, :description))
-        @article.save
         if @article.save
+            puts "article was saved"
             flash[:notice] = "Article was created successfully."
             redirect_to @article
           else
+            puts "article could not be saved"
             render 'new'
         end
     end
