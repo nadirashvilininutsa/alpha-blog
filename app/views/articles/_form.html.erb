@@ -7,7 +7,7 @@
   </ul>
 <% end %>
 
-<%= form_with(model: @article, local: true, data: { turbo: false }) do |f| %> 
+<%= form_with(model: @article, local: true) do |f| %> 
   <p>
     <%= f.label :title %><br/>
     <%= f.text_field :title %>
